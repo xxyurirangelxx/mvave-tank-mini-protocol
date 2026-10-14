@@ -293,72 +293,25 @@ Cada bloco possui um endereço para **Toggle (Ligar/Bypass)**, um endereço para
 
 ### 5.6 Módulo AMP (Modelagem de Pré-Amplificador)
 * **Toggle:** `0x09` | **Model Addr:** `0x0F` | **Knobs:** Início em `0x20`
+* **Seleção de Slot:** IDs `0` a `19` (`0x00` a `0x13` — 20 slots de amplificadores carregáveis/configuráveis pelo usuário)
 
-Todos os 20 modelos compartilham o mesmo conjunto de 5 parâmetros:
+Todos os 20 slots de amplificador compartilham o mesmo conjunto de 5 parâmetros:
 * `0x20`: **Gain** — Nível de saturação/drive do pré-amplificador (0 a 100)
 * `0x22`: **Level** — Volume geral do bloco (0 a 100)
 * `0x24`: **Bass** — Equalização de frequências graves (0 a 100)
 * `0x26`: **Mid** — Equalização de frequências médias (0 a 100)
 * `0x28`: **Treble** — Equalização de frequências agudas (0 a 100)
 
-#### Lista Completa dos 20 Modelos Nativos do Firmware:
-| ID | Código Interno | Amplificador de Referência | Estilo |
-|:---:|---|---|---|
-| `0` | `1J120_CL` | Roland JC-120 Jazz Chorus | Clean cristalino estéreo |
-| `1` | `2J900_CL` | Marshall JCM900 Clean | Clean britânico dinâmico |
-| `2` | `3VAVE_TS` | Ibanez Tube Screamer Preamp | Overdrive com médios focados |
-| `3` | `4RAT_OD` | ProCo RAT | Overdrive rasgado/vintage |
-| `4` | `5VAVE_HTS` | Custom High-Gain TS | Drive encorpado |
-| `5` | `6VAVE_DS` | Boss DS-1 Distortion | Distorção clássica |
-| `6` | `7MS_GV2` | Marshall The Guv'nor | Drive britânico pesado |
-| `7` | `8J900_HV` | Marshall JCM900 Lead | Hard Rock britânico |
-| `8` | `9MS_HIGAIN` | Marshall Modern High Gain | Rock moderno |
-| `9` | `10J900-FG` | Marshall JCM900 Full Gain | Alto ganho clássico |
-| `10` | `11.410H-FG` | Marshall JVM410H High Gain | Metal moderno britânico |
-| `11` | `12MES-FG` | Mesa Boogie Dual Rectifier | Metal americano moderno |
-| `12` | `13MES-_CH3` | Mesa Boogie Triple Rectifier Canal 3 | Graves densos e corte afiado |
-| `13` | `14FIRMAN` | Friedman BE-100 Brown Eye | High-gain boutique |
-| `14` | `15CT-Gas V4H` | Diezel VH4 Lead | Metal progressivo/pesado |
-| `15` | `16AgDb750_BS` | Aguilar DB750 | Cabeçote de Contrabaixo moderno |
-| `16` | `17ApSVT_BS` | Ampeg SVT-CL | Cabeçote de Contrabaixo valvulado clássico |
-| `17` | `DS` | Distorção genérica alternativa | Rock |
-| `18` | `OVERDRIVE` | Overdrive genérico | Blues/Pop |
-| `19` | `CRUNCH` | Crunch leve | Rock clássico |
-
 ---
 
 ### 5.7 Módulo CAB (Impulse Response de Caixa Acústica)
 * **Toggle:** `0x0D` | **Model Addr:** `0x13` | **Knobs:** Início em `0x50`
+* **Seleção de Slot:** IDs `0` a `19` (`0x00` a `0x13` — 20 slots de IR/Cab carregáveis pelo usuário)
 
-Todos os 20 modelos de IR compartilham os mesmos 3 controles:
+Todos os 20 slots de IR compartilham os mesmos 3 controles:
 * `0x50`: **Level** — Volume da simulação de caixa (0 a 100)
 * `0x52`: **Low Cut** — Filtro passa-altas para cortar subgraves indesejados (20Hz a 300Hz, valor 0 a 100)
 * `0x54`: **High Cut** — Filtro passa-baixas para suavizar chiados e agudos ásperos (18kHz a 5kHz, valor 0 a 100)
-
-#### Lista Completa dos 20 Gabinetes Nativos do Firmware:
-| ID | Código Interno | Caixa e Microfone Emulados | Instrumento |
-|:---:|---|---|---|
-| `0` | `1AC-SeVin` | Custom 2x12 Vintage | Guitarra |
-| `1` | `2JVM_1960_57` | Marshall 1960A 4x12 (Shure SM57) | Guitarra |
-| `2` | `3MESA_412` | Mesa Boogie Rectifier Oversized 4x12 | Guitarra |
-| `3` | `4WANGS112` | Wangs 1x12 Custom | Guitarra |
-| `4` | `5VOX_AC30` | Vox AC30 2x12 Alnico Blue | Guitarra |
-| `5` | `6HIFI_YAMAHA` | Resposta plana Hi-Fi / Full Range | Violão / Linha |
-| `6` | `7EGNL_412` | Engl Pro 4x12 Celestion V30 | Guitarra |
-| `7` | `8V30_MD421` | 4x12 Celestion V30 (Sennheiser MD421) | Guitarra |
-| `8` | `9Peavey115B` | Peavey 1x15 Bass Enclosure | Contrabaixo |
-| `9` | `10OrPPC212` | Orange PPC212 Closed Back | Guitarra |
-| `10` | `11TraceElliot` | Trace Elliot 4x10 Bass Cab | Contrabaixo |
-| `11` | `12Bog2VTY` | Bogner 2x12 Vintage 30 | Guitarra |
-| `12` | `13BGN412` | Bogner Ubercab 4x12 (V30 + T75) | Guitarra |
-| `13` | `14EV MIX` | EVM-12L Custom Mix | Guitarra |
-| `14` | `15Friedman` | Friedman 4x12 Vintage 30 | Guitarra |
-| `15` | `16Agula410` | Aguilar GS410 | Contrabaixo |
-| `16` | `17AgSVT410` | Ampeg SVT-410HLF | Contrabaixo |
-| `17` | `18DgDG212N` | Darkglass 2x12 Neodymium | Contrabaixo |
-| `18` | `19MbSway210` | Markbass Standard 2x10 | Contrabaixo |
-| `19` | `20Tace412` | Vintage 4x12 Classic | Guitarra |
-
 ---
 
 ## 6. Estrutura da Matriz RAM (Dump Completo de 92 Bytes)
